@@ -1,23 +1,6 @@
-
-## YouTube Link
-For the full 1 hour course watch out youtube:
-https://www.youtube.com/watch?v=6YZvp2GwT0A
-
-# Installation
-## Build the Jenkins BlueOcean Docker Image (or pull and use the one I built)
-```
+create git repository
 docker build -t myjenkins-blueocean:2.332.3-1 .
-
-#IF you are having problems building the image yourself, you can pull from my registry and rename it to `myjenkins-blueocean:2.332.3-1`
-
-docker pull devopsjourney1/jenkins-blueocean:2.332.3-1 && docker tag devopsjourney1/jenkins-blueocean:2.332.3-1 myjenkins-blueocean:2.332.3-1
-```
-
-## Create the network 'jenkins'
-```
 docker network create jenkins
-```
-
 ## Run the Container
 ### MacOS / Linux
 ```
@@ -45,6 +28,9 @@ docker run --name jenkins-blueocean --restart=on-failure --detach `
 ```
 docker exec jenkins-blueocean cat /var/jenkins_home/secrets/initialAdminPassword
 ```
+
+docker exec -it jenkins-blueocean bash
+pwd
 
 ## Connect to the Jenkins
 ```
